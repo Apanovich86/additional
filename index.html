@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //   -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+    // EXAMPLE:
+    // foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
+    // foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+    // foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+
+    function foo(arr, i) {
+        let temp;
+        for (j = 0; j < arr.length; j++) {
+            if (j == i) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i]
+                arr[i] = temp;
+            }
+        }
+        return arr;
+    }
+
+    let arr1 = foo([9, 8, 0, 4], 2);
+    console.log(arr1);
+
+    // - Дано список імен.
+    //     let n1 = '    Harry       Potter      '
+    // let n2 = '    Ron       Whisley      '
+    // let n3 = '    Hermione       Granger      '
+    // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
+    // let n1 = 'Harry Potter'
+    // let n2 = 'Ron Whisley'
+    // let n3 = 'Hermione Granger'
+    let n1 = '    Harry       Potter      ';
+    let n2 = '    Ron       Whisley      ';
+    let n3 = '    Hermione       Granger      ';
+
+    function nameNormalization(str) {
+        let arr3 = str.trim();
+        let replaceAll = arr3.replaceAll('  ', ' ');
+        console.log(replaceAll);
+    }
+    nameNormalization(n1);
+    nameNormalization(n2);
+    nameNormalization(n3);
+
+    // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+    //     Двожина масиву від 2 до 100
+    // EXAMPLE:
+    //     [1,0,6,0,3] => [1,6,3,0,0]
+    //     [0,1,2,3,4] => [1,2,3,4,0]
+    //     [0,0,1,0]   => [1,0,0,0]
+    let mas1 = [1,0,6,0,3];
+    let mas2 = [0,1,2,3,4];
+    let mas3 = [0,0,1,0];
+    function transferZero(arr){
+        if(arr.length>=2 && arr.length<=100){
+            // let mas = [1,0,6,0,3];
+            for (let i=0;i<= arr.length-1;i++) {
+                if(arr[i]==0){
+                   arr.splice(i, 1);
+                   arr.push(0);
+                }
+            }
+            console.log(arr);
+        }
+    }
+    transferZero(mas1);
+</script>
+</body>
+</html>
